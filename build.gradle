@@ -80,20 +80,6 @@ grailsPublish {
     developers = [mauracwarner:"Maura Warner"]
 }
 
-bintray {
-    pkg {
-        userOrg = 'binxhealth' // If you want to publish to an organization
-        repo = 'grails-plugins'
-        name = "$project.name"
-        issueTrackerUrl = "https://github.com/binxhealth/spring-security-oauth2-azure/issues"
-        vcsUrl = "https://github.com/binxhealth/spring-security-oauth2-azure"
-        version {
-            attributes = ['grails-plugin': "$project.group:$project.name"]
-            name = project.version
-        }
-    }
-}
-
 assets {
     packagePlugin = true
 }

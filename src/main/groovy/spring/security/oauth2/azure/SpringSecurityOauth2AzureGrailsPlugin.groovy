@@ -7,7 +7,7 @@ import grails.plugins.*
 class SpringSecurityOauth2AzureGrailsPlugin extends Plugin {
 
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "3.3.5 > *"
+    def grailsVersion = "3.3.10 > *"
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
         "grails-app/views",

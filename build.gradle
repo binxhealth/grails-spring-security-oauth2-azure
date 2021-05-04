@@ -9,7 +9,7 @@ buildscript {
     }
 }
 
-version "1.0.0"
+version "1.0.1"
 group "com.binxhealth"
 
 apply plugin:"eclipse"
@@ -67,9 +67,6 @@ bootRun {
 bootRepackage.enabled = false
 
 grailsPublish {
-    // TODO: Provide values here
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
     userOrg = 'binxhealth'
     githubSlug = 'spring-security-oauth2-azure'
     license {
@@ -80,16 +77,15 @@ grailsPublish {
     developers = [mauracwarner:"Maura Warner"]
 }
 
-bintray {
-    pkg {
-        userOrg = 'binxhealth' // If you want to publish to an organization
-        repo = 'grails-plugins'
-        name = "$project.name"
-        issueTrackerUrl = "https://github.com/binxhealth/spring-security-oauth2-azure/issues"
-        vcsUrl = "https://github.com/binxhealth/spring-security-oauth2-azure"
-        version {
-            attributes = ['grails-plugin': "$project.group:$project.name"]
-            name = project.version
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = 'https://maven.pkg.github.com/binxhealth/spring-security-oauth2-azure'
+            credentials {
+                username "${System.getenv('GPR_USER')}"
+                password "${System.getenv('GPR_API_TOKEN')}"
+            }
         }
     }
 }
